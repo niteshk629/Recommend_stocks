@@ -1,0 +1,96 @@
+# Stock Recommendation System Configuration
+
+# Stock Universe - Top NSE/BSE stocks for analysis
+stock_universe:
+  nse:
+    - RELIANCE.NS
+    - TCS.NS
+    - HDFCBANK.NS
+    - INFY.NS
+    - HINDUNILVR.NS
+    - ICICIBANK.NS
+    - SBIN.NS
+    - BHARTIARTL.NS
+    - ITC.NS
+    - KOTAKBANK.NS
+    - LT.NS
+    - AXISBANK.NS
+    - WIPRO.NS
+    - MARUTI.NS
+    - TATAMOTORS.NS
+    - HCLTECH.NS
+    - BAJFINANCE.NS
+    - SUNPHARMA.NS
+    - ONGC.NS
+    - TITAN.NS
+
+# Data Collection Settings
+data_collection:
+  historical_period: 5y  # 5 years of historical data
+  interval: 1d  # Daily data
+  news_sources:
+    - moneycontrol
+    - economic_times
+    - livemint
+  sentiment_lookback_days: 30
+
+# Feature Engineering
+features:
+  technical_indicators:
+    - SMA_20
+    - SMA_50
+    - SMA_200
+    - EMA_12
+    - EMA_26
+    - RSI
+    - MACD
+    - Bollinger_Bands
+    - ATR
+    - Volume_MA
+  fundamental_metrics:
+    - PE_Ratio
+    - PB_Ratio
+    - Debt_to_Equity
+    - ROE
+    - ROA
+    - Net_Profit_Margin
+    - EPS
+    - Market_Cap
+  sentiment_features:
+    - News_Sentiment_Score
+    - Social_Media_Sentiment
+    - Analyst_Rating
+
+# Model Settings
+models:
+  random_forest:
+    n_estimators: 100
+    max_depth: 10
+    min_samples_split: 5
+  xgboost:
+    n_estimators: 100
+    max_depth: 6
+    learning_rate: 0.1
+  lstm:
+    units: 50
+    dropout: 0.2
+    epochs: 50
+    batch_size: 32
+
+# Recommendation Settings
+recommendation:
+  investment_horizon: medium_term  # short_term, medium_term, long_term
+  risk_tolerance: moderate  # conservative, moderate, aggressive
+  thresholds:
+    strong_buy: 0.75
+    buy: 0.60
+    hold: 0.40
+    sell: 0.25
+    strong_sell: 0.0
+
+# Paths
+paths:
+  data_dir: data
+  models_dir: models
+  logs_dir: logs
+  output_dir: output
